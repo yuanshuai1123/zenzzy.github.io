@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="null"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>JS学习笔记 | 正先生</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/pure-min.css"><link rel="stylesheet" type="text/css" href="/css/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JS学习笔记</h1><a id="logo" href="/.">正先生</a><p class="description">iOS、Android开发者，小前端</p></div><div id="nav-menu"><a href="/." class="current"><i class="icon-home"> 首頁</i></a><a href="/archives/"><i class="icon-archive"> 所有文章</i></a><a href="/about/"><i class="icon-about"> 關於</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post post-page"><h1 class="post-title">JS学习笔记</h1><div class="post-meta">2016-01-05 | </div><div class="post-content"><h1 id="u57FA_u7840_u5185_u5BB9"><a href="#u57FA_u7840_u5185_u5BB9" class="headerlink" title="基础内容"></a>基础内容</h1><p><em>基于ECMAScript 6<br></em><br><strong>JavaScript有两种运行模式，即正常模式和严格模式，严格模式需要使使用’use strict’。</strong></p>
+<hr>
+<h2 id="u4E00_u3001_u57FA_u672C_u77E5_u8BC6"><a href="#u4E00_u3001_u57FA_u672C_u77E5_u8BC6" class="headerlink" title="一、基本知识"></a>一、基本知识</h2><ol>
+<li>声明的三种方式：var, let(声明块范围局部变量), const(声明只读变量)。let只能在严格模式下运行成功，使用let不存在声明提升。正常模式下对const变量赋值不报错，但变量不会改变，而严格模式下会报错。</li>
+<li>空值null在数值类型环境中会被当0。</li>
+<li>声明提升，变量或函数可以在声明之前使用，运行时，如果此变量未声明，会在此前进行声明，函数会在上下文查找声明，若是未找到则报错。</li>
+<li>JavaScript的7种基本类型：Bolean, Null, Undefined, Number, String, Object, Symbol。</li>
+<li><p>单目加法运算符：将字符串转换为数字的另一种方法。其它的还有parseInt(), parseFloat()，这两个是全局对象<code>window</code>的方法。<figure class="highlight"><figcaption><span>(+"1.1") + (+"1.1") = 2.2```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6. &#23545;&#35937;&#21487;&#20197;&#20351;&#29992;&#25968;&#23383;&#25110;&#23383;&#31526;&#20018;&#23383;&#38754;&#20540;&#20316;&#20026;&#23646;&#24615;&#30340;&#21517;&#23383;&#12290;&#60;br /&#62;&#10;```eg: var car = &#123; 7: &#34;Mazda&#34; &#125;;console.log(car[7]); // Mazda</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>如果你需要在条件表达式中使用赋值，一个共同的习惯是在赋值语句前后额外的添加一对括号。<br><br><code>eg: if((x = y)) {...}</code></p>
+</li>
+<li>以下值在将被计算为false,<code>(布尔值与Boolean对象的值是不一样的)</code>:<ul>
+<li>false</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>空字符串 (“”)</li>
+</ul>
+</li>
+<li>一个闭包必须保存它可见作用域中所有的参数和变量。因为每一次调用传入的参数都可能不同，每一次对外部函数的调用都实际上重新创建了一遍这个闭包。只有当inside的返回值没有再被引用时，内存才会被释放。</li>
+<li>当同一个闭包作用域下两个参数或者变量同名时，就会产生命名冲突。更近的作用域有更高的优先权，所以最近的优先级最高，最远的优先级最低。这就是作用域链。链的第一个元素就是最里面的作用域，最后一个元素便是最外层的作用域。<br></li>
+<li>闭包中的神奇变量this是非常诡异的。使用它必须十分的小心，因为this指代什么完全取决于函数在何处被调用，而不是在何处被定义。</li>
+<li>函数参数：从ECMAScript 6开始，有两个新的类型的参数：默认参数，剩余参数(rest parameters)。</li>
+<li>箭头函数：<ul>
+<li>总是匿名的。</li>
+<li>有两个因素会影响介绍箭头函数：更简洁的函数和this。</li>
+<li>在箭头函数出现之前，每一个新函数都重新定义了自己的this值（在严格模式下，一个新的对象在构造函数里是未定义的，通过上下文对象调用的函数被称为“对象方法”等）。</li>
+</ul>
+</li>
+<li>预定义函数：<ul>
+<li>eval(),顶级方法，与任何对象无关。</li>
+<li>isFinite(),全局方法，与任何对象无关。</li>
+<li>isNaN(),检测是否为 NaN 的值。</li>
+<li>parseInt(),全局函数,不属于任何对象。</li>
+<li>parseFloat(),全局函数,不属于任何对象。</li>
+<li>decodeURI(),</li>
+<li>decodeURIComponent(),</li>
+<li>encodeURI(),</li>
+<li>encodeURIComponent(),</li>
+<li>uneval(),非标准方法，不要使用。</li>
+<li>escape(),已废弃。</li>
+<li>unescape(),已废弃。<br>15.特殊运算符：</li>
+<li>条件运算符： condition ? val1 : val2</li>
+<li>逗号运算符，分隔作用</li>
+<li>delete, 删除一个对象或者一个对象的属性, 或者一个数组中某一个键值。</li>
+<li>in, 如果指定的属性在指定的对象中会返回true。</li>
+<li>instanceof,</li>
+<li>new, 与Array, Boolean, Date, Function, Image, Number, Object, Option, RegExp, String 一起使用。</li>
+<li>this,</li>
+<li>typeof</li>
+<li>void</li>
+<li>super</li>
+</ul>
+</li>
+</ol>
+<h2 id="u4E8C_u3001_u5185_u7F6E_u5BF9_u8C61"><a href="#u4E8C_u3001_u5185_u7F6E_u5BF9_u8C61" class="headerlink" title="二、内置对象"></a>二、内置对象</h2><p>###(一) Number</p>
+<ul>
+<li>Number.prototype有3个方法<ul>
+<li>toExponential(), 返回一个数字的指数形式的字符串。</li>
+<li>toFixed(), 返回指定小数位数的表示形式。</li>
+<li>toPrecision(), 返回一个指定有效位数的指数形式的字符串。</li>
+</ul>
+</li>
+</ul>
+<p>###(二) Math</p>
+<ul>
+<li>不能创建自定义的Math对象，只能使用内置的Math对象。</li>
+</ul>
+<p>###(三) Date</p>
+<ul>
+<li>Date 对象的范围是相对距离 UTC1970年1月1日 的前后 100,000,000 天。</li>
+<li>处理日期时间的Date对象方法可分为以下几类:<ul>
+<li>“set” 方法, 用于设置Date对象的日期和时间的值。</li>
+<li>“get” 方法,用于获取Date对象的日期和时间的值。</li>
+<li>“to” 方法,用于返回Date对象的字符串格式的值。</li>
+<li>parse 和UTC 方法, 用于解析Date字符串。</li>
+</ul>
+</li>
+</ul>
+<p>###(四) String</p>
+<ul>
+<li>除非必要, 应该尽量使用String字面值, 因为String对象的某些行为可能并不与直觉一致。</li>
+<li>模板字符串：模板字符串使用反勾号 (` `) (grave accent) 包裹内容而不是单引号或双引号. 模板字符串可以包含占位符. 占位符用美元符号和花括号标识 (${expression})。</li>
+<li>国际化：Intl 对象是ECMAScript国际化API的命名空间, 它提供了语言敏感的字符串比较，数字格式化和日期时间格式化功能.  Collator, NumberFormat, 和 DateTimeFormat 对象的构造函数是Intl对象的属性。<ul>
+<li>DateTimeFormat, 日期和时间格式化方法。</li>
+<li>NumberFormat, 数字格式化方法。</li>
+<li>Collator, 定序方法。</li>
+</ul>
+</li>
+</ul>
+<p>###(五) RegExp</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="external">特殊字符参考表</a></li>
+<li>正则表达式可以被用于RegExp的exec和test方法以及 String的match、replace、search和split方法。</li>
+</ul>
+<p>###(六) Array</p>
+<ul>
+<li>JavaScript实际上是将元素作为标准的对象属性来存储，把数组索引作为属性名。</li>
+<li>forEach() 方法提供乐遍历数组元素的一种方法。</li>
+</ul>
+</div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-nav"><a href="/2016/01/05/2016年计划/" class="next">2016年计划<i class="icon-next"></i></a></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><div class="widget-title">標籤</div><div class="tagcloud"><a href="/tags/计划/" style="font-size: 15px;">计划</a> <a href="/tags/总结/" style="font-size: 15px;">总结</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a></div></div></div></div></div><div id="footer">© <a href="/." rel="nofollow">正先生.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a></div><a id="rocket" href="#top" class="show"></a><script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/js/totop.js" type="text/javascript"></script><script src="/js/fancybox.pack.js" type="text/javascript"></script>
+<script src="/js/jquery.fancybox.js" type="text/javascript"></script><link rel="stylesheet" href="/css/jquery.fancybox.css" type="text/css"></div></body></html>
