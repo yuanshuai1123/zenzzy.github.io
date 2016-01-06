@@ -242,7 +242,7 @@ a:focus {
     .post .tags a {
       margin-right: .5em; }
       .post .tags a:before {
-        content: '🏳';
+        content: '📎';
         display: inline-block; }
 
 .page-navigator {
